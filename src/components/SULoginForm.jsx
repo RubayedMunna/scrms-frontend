@@ -39,7 +39,6 @@ const SULoginForm = () => {
                                 required
                             />
                         </div>
-                        <h1>Hello</h1>
                         <div className="form-group">
                             <label>Password</label>
                             <input
@@ -49,7 +48,6 @@ const SULoginForm = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                             />
-                           
                         </div>
                         <button type="submit" className="btn btn-primary btn-block mt-3">Login</button>
                     </form>
