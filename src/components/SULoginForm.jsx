@@ -48,7 +48,7 @@ const SULoginForm = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
                             />
-                            <h2>Hello</h2>
+                           
                         </div>
                         <button type="submit" className="btn btn-primary btn-block mt-3">Login</button>
                     </form>
