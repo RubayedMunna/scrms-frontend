@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {jwtDecode} from 'jwt-decode'; // Corrected import
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Dashboard = () => {
     const [user, setUser] = useState(null);
@@ -36,10 +37,28 @@ const Dashboard = () => {
     if (!user) return null;
 
     return (
-        <div>
-            <h2>Welcome to your {user.role} dashboard</h2>
-            <button onClick={handleLogout}>Logout</button>
-            <div>{data && JSON.stringify(data)}</div>
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-8">
+                    <div className="card shadow-sm">
+                        <div className="card-header bg-primary text-white text-center">
+                            <h2>Welcome to your {user.role} Dashboard</h2>
+                        </div>
+                        <div className="card-body">
+                            <div className="text-center mb-4">
+                                <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+                            </div>
+                            <div>
+                                {data ? (
+                                    <pre className="text-left">{JSON.stringify(data, null, 2)}</pre>
+                                ) : (
+                                    <div className="text-center">Loading data...</div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

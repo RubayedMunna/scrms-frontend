@@ -1,4 +1,3 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -20,6 +19,10 @@ const SULoginForm = () => {
         } catch (err) {
             setError('Invalid credentials');
         }
+    };
+
+    const handleForgotPassword = () => {
+        navigate('/su-forgot-password');
     };
 
     return (
@@ -59,6 +62,9 @@ const SULoginForm = () => {
                                 </div>
                                 <button type="submit" className="btn btn-primary btn-block mt-3">Login</button>
                             </form>
+                            <div className="mt-3 text-center">
+                                <button className="btn btn-link" onClick={handleForgotPassword}>Forgot Password?</button>
+                            </div>
                         </div>
                     </div>
                 </div>

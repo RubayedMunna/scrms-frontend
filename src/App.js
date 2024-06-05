@@ -20,6 +20,8 @@ import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
+import SUForgotPassword from './components/SUForgotPassword';
+import SUResetPassword from './components/SUResetPassword';
 
 const PrivateRoute = ({ children }) => {
   return getToken() ? children : <Navigate to="/su-login" />;
@@ -30,7 +32,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/generate-su-link" element={<SULinkGenerator />} />
+        <Route path="/su-generate-link" element={<SULinkGenerator />} />
         <Route path="/su-register/:token" element={<SURegisterForm />} />
         <Route path="/su-login" element={<SULoginForm />} />
         <Route path="/login" element={<LoginForm />} />
@@ -38,6 +40,8 @@ function App() {
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
+        <Route path="/su-forgot-password" element={<SUForgotPassword />} />
+        <Route path="/su-reset-password/:token" element={<SUResetPassword />} />
 
 
         <Route path="/upload-department" element={<DepartmentUpload/>} /> 

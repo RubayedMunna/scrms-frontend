@@ -16,7 +16,7 @@ const SUDashboard = () => {
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-md-6 text-center">
-                    <h1 className="mt-5">Dashboard</h1>
+                    <h2 className="mt-5">Super User Dashboard</h2>
                     <button className="btn btn-danger mt-3" onClick={handleLogout}>Logout</button>
                 </div>
             </div>

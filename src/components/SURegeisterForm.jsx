@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const SURegisterForm = () => {
     const { token } = useParams();
@@ -11,6 +13,8 @@ const SURegisterForm = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+
+    const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -22,6 +26,7 @@ const SURegisterForm = () => {
             });
             setSuccess('Superuser registered successfully');
             setError('');
+            navigate('/su-login');
         } catch (error) {
             console.error('Registration failed:', error);
             setError('Registration failed');
