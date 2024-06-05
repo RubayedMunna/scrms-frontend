@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+// src/components/SULinkGenerator.js
+import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const SULinkGenerator = () => {
-    const [email, setEmail] = useState('');
     const navigate = useNavigate();
 
     const handleGenerateLink = async (e) => {
@@ -19,14 +19,19 @@ const SULinkGenerator = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6">
-                    <h2 className="text-center mt-5">Generate Super User Registration Link</h2>
-                    <form onSubmit={handleGenerateLink}>
-                        
-                        <button type="submit" className="btn btn-primary btn-block mt-3">Generate Link</button>
-                    </form>
+                    <div className="card shadow-sm">
+                        <div className="card-header bg-secondary text-white text-center">
+                            <h2>Generate Super User Registration Link</h2>
+                        </div>
+                        <div className="card-body">
+                            <form onSubmit={handleGenerateLink}>
+                                <button type="submit" className="btn btn-primary btn-block">Generate Link</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

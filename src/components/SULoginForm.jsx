@@ -23,34 +23,44 @@ const SULoginForm = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6">
-                    <h2 className="text-center mt-5">Super User Login</h2>
-                    {error && <div className="alert alert-danger">{error}</div>}
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label>Email</label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
+                    <div className="card shadow-sm">
+                        <div className="card-header bg-secondary text-white text-center">
+                            <h2>Super User Login</h2>
                         </div>
-                        <div className="form-group">
-                            <label>Password</label>
-                            <input
-                                type="password"
-                                className="form-control"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
+                        <div className="card-body">
+                            {error && <div className="alert alert-danger">{error}</div>}
+                            <form onSubmit={handleSubmit}>
+                                <div className="form-group">
+                                    <label htmlFor="email">Email</label>
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="email"
+                                        placeholder="Enter email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="password">Password</label>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="password"
+                                        placeholder="Enter password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <button type="submit" className="btn btn-primary btn-block mt-3">Login</button>
+                            </form>
                         </div>
-                        <button type="submit" className="btn btn-primary btn-block mt-3">Login</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

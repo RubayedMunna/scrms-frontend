@@ -21,8 +21,7 @@ const ResetPassword = () => {
         try {
             await axios.post('http://localhost:5000/api/auth/reset-password', { token, password });
             setMessage("Password reset successful");
-            // Redirect to login page or any other page after successful reset
-            window.location.href = '/login'; // Redirect using window.location
+            window.location.href = '/login';
         } catch (error) {
             console.error('Error resetting password', error);
             setMessage("Error resetting password");
@@ -30,26 +29,46 @@ const ResetPassword = () => {
     };
 
     return (
-        <div>
-            <h2>Reset Password</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="password"
-                    placeholder="New Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">Reset Password</button>
-            </form>
-            {message && <p>{message}</p>}
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <div className="card">
+                        <div className="card-header bg-secondary text-white">
+                            <h2>Reset Password</h2>
+                        </div>
+                        <div className="card-body">
+                            <form onSubmit={handleSubmit}>
+                                <div className="form-group">
+                                    <label htmlFor="password">New Password</label>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="password"
+                                        placeholder="New Password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="confirmPassword">Confirm Password</label>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="confirmPassword"
+                                        placeholder="Confirm Password"
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <button type="submit" className="btn btn-primary btn-block">Reset Password</button>
+                            </form>
+                            {message && <p className="mt-3 text-danger">{message}</p>}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

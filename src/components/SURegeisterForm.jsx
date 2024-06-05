@@ -1,3 +1,4 @@
+// src/components/SURegisterForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -8,6 +9,8 @@ const SURegisterForm = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -17,54 +20,67 @@ const SURegisterForm = () => {
                 email,
                 password
             });
-            alert('Superuser registered successfully');
+            setSuccess('Superuser registered successfully');
+            setError('');
         } catch (error) {
             console.error('Registration failed:', error);
-            alert('Registration failed');
+            setError('Registration failed');
+            setSuccess('');
         }
     };
 
     return (
-        <div className="container">
+        <div className="container mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6">
-                    <h2 className="text-center mt-5">Super User Registration</h2>
-                    <form onSubmit={handleRegister}>
-                        <div className="form-group">
-                            <label htmlFor="username">Username:</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="username"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                                required
-                            />
+                    <div className="card shadow-sm">
+                        <div className="card-header bg-secondary text-white text-center">
+                            <h2>Super User Registration</h2>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email:</label>
-                            <input
-                                type="email"
-                                className="form-control"
-                                id="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
+                        <div className="card-body">
+                            {error && <div className="alert alert-danger">{error}</div>}
+                            {success && <div className="alert alert-success">{success}</div>}
+                            <form onSubmit={handleRegister}>
+                                <div className="form-group">
+                                    <label htmlFor="username">Username</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="username"
+                                        placeholder="Enter username"
+                                        value={username}
+                                        onChange={(e) => setUsername(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="email">Email</label>
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="email"
+                                        placeholder="Enter email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="password">Password</label>
+                                    <input
+                                        type="password"
+                                        className="form-control"
+                                        id="password"
+                                        placeholder="Enter password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <button type="submit" className="btn btn-primary btn-block mt-3">Register</button>
+                            </form>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="password">Password:</label>
-                            <input
-                                type="password"
-                                className="form-control"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </div>
-                        <button type="submit" className="btn btn-primary btn-block mt-3">Register</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
