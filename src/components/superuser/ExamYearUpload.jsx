@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import Papa from 'papaparse';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ExamYearUpload = () => {
     const [file, setFile] = useState(null);
     const [message, setMessage] = useState('');
+
+    const navigate = useNavigate();
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
@@ -48,6 +51,10 @@ const ExamYearUpload = () => {
         }
     };
 
+    const handleBackToHome = () => {
+        navigate('/su-dashboard'); // Adjust the route as per your application's home page route
+    };
+
     return (
         <div className="container mt-5">
             <div className="row justify-content-center">
@@ -59,7 +66,10 @@ const ExamYearUpload = () => {
                             <div className="mb-3">
                                 <input className="form-control" type="file" accept=".csv" onChange={handleFileChange} />
                             </div>
-                            <button className="btn btn-primary" onClick={handleUpload}>Upload</button>
+                            <div className="d-grid gap-2 justify-content-md">
+                                <button className="btn btn-primary me-md-2" type="button" onClick={handleUpload}>Upload</button>
+                                <button className="btn btn-secondary" type="button" onClick={handleBackToHome}>Back to Home</button>
+                            </div>
                             {message && <p className="mt-3">{message}</p>}
                         </div>
                     </div>

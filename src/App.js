@@ -4,10 +4,10 @@ import React from 'react';
 import { getToken } from './utils/auth';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import SURegisterForm from './components/SURegeisterForm';
-import SULinkGenerator from './components/SULinkGenerator';
-import SULoginForm from './components/SULoginForm';
-import SUDashboard from './components/SUDashboard';
+import SURegisterForm from './components/superuser/SURegeisterForm';
+import SULinkGenerator from './components/superuser/SULinkGenerator';
+import SULoginForm from './components/superuser/SULoginForm';
+import SUDashboard from './components/superuser/SUDashboard';
 import DepartmentUpload from './components/superuser/DepartmentUpload';
 import TeacherUpload from './components/superuser/TeacherUpload';
 import DeptChairmanUpload from './components/superuser/DeptChairmanUpload';
@@ -20,8 +20,10 @@ import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
-import SUForgotPassword from './components/SUForgotPassword';
-import SUResetPassword from './components/SUResetPassword';
+import SUForgotPassword from './components/superuser/SUForgotPassword';
+import SUResetPassword from './components/superuser/SUResetPassword';
+import WelcomePage from './pages/WelcomePage';
+import AboutUs from './pages/AboutUs';
 
 const PrivateRoute = ({ children }) => {
   return getToken() ? children : <Navigate to="/su-login" />;
@@ -32,6 +34,9 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/welcome-page" element={<WelcomePage />} />
+        <Route path="/about-us" element={<AboutUs />} />
+
         <Route path="/su-generate-link" element={<SULinkGenerator />} />
         <Route path="/su-register/:token" element={<SURegisterForm />} />
         <Route path="/su-login" element={<SULoginForm />} />
@@ -54,7 +59,7 @@ function App() {
         <Route path="/upload-exam-year" element={<ExamYearUpload/>}/>
 
         {/* Add other routes as needed */}
-        <Route path="/" element={<Navigate to="/su-login" />} /> 
+        <Route path="/" element={<Navigate to="/welcome-page" />} /> 
       </Routes>
     </Router>
   );
