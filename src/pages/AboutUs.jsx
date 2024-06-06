@@ -49,7 +49,7 @@ const AboutUs = () => {
                         <div className="card mb-4 shadow-sm p-3">
                             <div className="row g-0 align-items-center">
                                 <div className="col-md-4 d-flex justify-content-center align-items-center" style={{ height: '200px' }}>
-                                    <img src="/files/images/Rubayed.jpeg" className="img-fluid rounded-start" alt="Rubayed All Islam" style={{ width: '100%', objectFit: 'cover', height: '100%' }} />
+                                    <img src="/files/images/rubayed_2.jpg" className="img-fluid rounded-start" alt="Rubayed All Islam" style={{ width: '100%', objectFit: 'cover', height: '100%' }} />
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
