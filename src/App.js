@@ -24,6 +24,7 @@ import SUForgotPassword from './components/superuser/SUForgotPassword';
 import SUResetPassword from './components/superuser/SUResetPassword';
 import WelcomePage from './pages/WelcomePage';
 import AboutUs from './pages/AboutUs';
+import SyllabusUpload from './components/superuser/SyllabusUpload';
 
 const PrivateRoute = ({ children }) => {
   return getToken() ? children : <Navigate to="/su-login" />;
@@ -57,6 +58,7 @@ function App() {
         <Route path="/upload-session" element={<SessionUpload/>}/>
         <Route path="/upload-student" element={<StudentUpload/>}/>
         <Route path="/upload-exam-year" element={<ExamYearUpload/>}/>
+        <Route path="/upload-syllabus" element={<SyllabusUpload/>}/>
 
         {/* Add other routes as needed */}
         <Route path="/" element={<Navigate to="/welcome-page" />} /> 
