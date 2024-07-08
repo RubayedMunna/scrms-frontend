@@ -10,7 +10,7 @@ const SULinkGenerator = () => {
     const handleGenerateLink = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/generate-registration-link');
+            const response = await axios.post('http://localhost:5001/api/generate-registration-link');
             alert('Registration link sent to your email');
             navigate('/su-login');
         } catch (error) {

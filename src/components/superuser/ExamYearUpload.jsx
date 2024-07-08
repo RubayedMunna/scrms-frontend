@@ -34,7 +34,7 @@ const ExamYearUpload = () => {
                 complete: async (results) => {
                     const xmlData = csvToXml(results.data);
                     try {
-                        const response = await axios.post('http://localhost:5000/api/upload-exam-year', xmlData, {
+                        const response = await axios.post('http://localhost:5001/api/upload-exam-year', xmlData, {
                             headers: {
                                 'Content-Type': 'application/xml'
                             }

@@ -13,7 +13,7 @@ const SULoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/login-superuser', { email, password });
+            const res = await axios.post('http://localhost:5001/api/login-superuser', { email, password });
             setToken(res.data.token);
             navigate('/su-dashboard');
         } catch (err) {
