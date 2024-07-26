@@ -26,6 +26,9 @@ import WelcomePage from './pages/WelcomePage';
 import AboutUs from './pages/AboutUs';
 import SyllabusUpload from './components/superuser/SyllabusUpload';
 import SyllabusUploadTest from './components/superuser/SyllabusUploadTest';
+import SyllabusFilter from './components/user/SyllabusFilter';
+import CourseDataDisplay from './components/superuser/CourseDataDisplay';
+import ScheduleGenerator from './components/Routine/ScheduleGenerator';
 
 const PrivateRoute = ({ children }) => {
   return getToken() ? children : <Navigate to="/su-login" />;
@@ -63,6 +66,12 @@ function App() {
         <Route path="/upload-exam-year" element={<ExamYearUpload/>}/>
         <Route path="/upload-syllabus" element={<SyllabusUpload/>}/>
         <Route path="/upload-syllabus-test" element={<SyllabusUploadTest/>}/>
+        <Route path="/filter-syllabus" element={<SyllabusFilter/>}/>
+        <Route path="/course-data" element={<CourseDataDisplay/>}/>
+
+        <Route path="/generate-routine" element={<ScheduleGenerator/>}/>
+
+
 
         {/* Add other routes as needed */}
         <Route path="/" element={<Navigate to="/welcome-page" />} /> 

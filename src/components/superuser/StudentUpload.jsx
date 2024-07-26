@@ -32,7 +32,7 @@ const StudentUpload = () => {
                 complete: async (results) => {
                     const xmlData = csvToXml(results.data);
                     try {
-                        const response = await axios.post('http://localhost:5000/api/upload-student', xmlData, {
+                        const response = await axios.post('http://localhost:5002/api/upload-student', xmlData, {
                             headers: {
                                 'Content-Type': 'application/xml'
                             }

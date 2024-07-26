@@ -1,0 +1,13 @@
+.col-1 {
+    width: 1%;
+    
+  }
+  
+  .col-11 {
+    width: 99%;
+  }
+
+  #syllabus-content {
+    font-size: 20px;
+    border-width: 2px;
+}

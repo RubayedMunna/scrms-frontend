@@ -8,7 +8,7 @@ const LoginForm = () => {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+            const response = await axios.post('http://localhost:5002/api/auth/login', { email, password });
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('role', response.data.role);
             window.location.href = '/dashboard';

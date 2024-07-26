@@ -11,7 +11,7 @@ const ForgotPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+            await axios.post('http://localhost:5002/api/auth/forgot-password', { email });
             setMessage('Recovery email sent. Please check your inbox.');
             setSent(true);
         } catch (error) {
