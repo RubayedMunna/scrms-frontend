@@ -19,7 +19,9 @@ const SUResetPassword = () => {
         }
 
         try {
-            await axios.post('http://localhost:5001/api/auth/su-reset-password', { token, password });
+
+            await axios.post('http://localhost:5002/api/auth/su-reset-password', { token, password });
+
             setMessage("Password reset successful");
             window.location.href = '/su-login';
         } catch (error) {
