@@ -33,7 +33,9 @@ const DepartmentUpload = () => {
                 complete: async (results) => {
                     const xmlData = csvToXml(results.data);
                     try {
+
                         const response = await axios.post('http://localhost:5002/api/upload-department', xmlData, {
+
                             headers: {
                                 'Content-Type': 'application/xml'
                             }

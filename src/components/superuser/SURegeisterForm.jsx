@@ -19,7 +19,9 @@ const SURegisterForm = () => {
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
+
             const response = await axios.post(`http://localhost:5002/api/register-superuser/${token}`, {
+
                 username,
                 email,
                 password
