@@ -1,0 +1,39 @@
+.routine-calendar {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.week {
+    display: flex;
+    justify-content: space-between;
+}
+
+.day {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.empty {
+    background-color: #f0f0f0;
+}
+
+.bg-danger {
+    background-color: red !important;
+    color: white !important;
+}
+.table {
+    margin-top: 20px;
+}
+
+.bg-danger {
+    background-color: red !important;
+    color: white !important;
+}
+
+.text-white {
+    color: white !important;
+}
