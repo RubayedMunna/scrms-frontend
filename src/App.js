@@ -29,6 +29,13 @@ import SyllabusUploadTest from './components/superuser/SyllabusUploadTest';
 import SyllabusFilter from './components/user/SyllabusFilter';
 import CourseDataDisplay from './components/superuser/CourseDataDisplay';
 import ScheduleGenerator from './components/Routine/ScheduleGenerator';
+import ScheduleViewer from './components/Routine/ScheduleViewer';
+import HolidaysUpload from './components/superuser/HolidaysUpload';
+import HolidayList from './components/superuser/HolidayList';
+import ScheduleWithHolidays from './components/user/ScheduleWithHolidays';
+import ScheduleViewerAsUser from './components/user/ScheduleViewerAsUser';
+
+
 
 const PrivateRoute = ({ children }) => {
   return getToken() ? children : <Navigate to="/su-login" />;
@@ -68,9 +75,13 @@ function App() {
         <Route path="/upload-syllabus-test" element={<SyllabusUploadTest/>}/>
         <Route path="/filter-syllabus" element={<SyllabusFilter/>}/>
         <Route path="/course-data" element={<CourseDataDisplay/>}/>
+        <Route path="/upload-holidays" element={<HolidaysUpload/>}/>
+        <Route path="/view-holidays" element={<HolidayList/>}/>
 
         <Route path="/generate-routine" element={<ScheduleGenerator/>}/>
-
+        <Route path="/view-routine" element={<ScheduleViewer/>}/>
+        <Route path="/view-calendar-as-user" element={<ScheduleWithHolidays/>}/>
+        <Route path="/view-routine-as-user" element={<ScheduleViewerAsUser/>}/>
 
 
         {/* Add other routes as needed */}
