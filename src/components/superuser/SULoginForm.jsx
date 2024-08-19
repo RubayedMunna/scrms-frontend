@@ -17,7 +17,7 @@ const SULoginForm = () => {
             const res = await axios.post('http://localhost:5002/api/login-superuser', { email, password });
 
             setToken(res.data.token);
-            navigate('/su-dashboard');
+            navigate('/su-homepage');
         } catch (err) {
             setError('Invalid credentials');
         }

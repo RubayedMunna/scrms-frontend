@@ -10,7 +10,6 @@ const WelcomePage = () => {
                 <h1 className="mb-4">Welcome to the Smart Class Routine Management System</h1>
                 <div className="d-grid gap-2 d-md-flex justify-content-md-center mb-4">
                     <Link to="/login" className="btn btn-primary me-2">User Login</Link>
-                    <Link to="/su-login" className="btn btn-primary me-2">Super User Login</Link>
                     <Link to="/su-generate-link" className="btn btn-primary">Super User Registration</Link>
                 </div>
                 <h2 className="mb-3">Features of the System</h2>

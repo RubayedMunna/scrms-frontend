@@ -13,7 +13,19 @@ const LoginForm = () => {
 
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('role', response.data.role);
-            window.location.href = '/dashboard';
+            if(response.data.role=='SuperUser'){
+                window.location.href = 'su-homepage';
+            }
+            if(response.data.role=='Teacher'){
+                window.location.href = 'teacher-homepage';
+            }
+            if(response.data.role=='Student'){
+                window.location.href = 'student-homepage';
+            }
+            if(response.data.role=='Staff'){
+                window.location.href = 'staff-homepage';
+            }
+            // window.location.href = '/dashboard';
         } catch (error) {
             console.error('Invalid credentials');
         }

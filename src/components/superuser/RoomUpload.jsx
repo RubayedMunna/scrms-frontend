@@ -52,7 +52,7 @@ const RoomUpload = () => {
     };
 
     const handleBackToHome = () => {
-        navigate('/su-dashboard'); // Adjust the route as per your application's home page route
+        navigate('/su-upload-files'); // Adjust the route as per your application's home page route
     };
 
     return (
