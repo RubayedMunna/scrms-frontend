@@ -34,7 +34,9 @@ const ExamYearUpload = () => {
                 complete: async (results) => {
                     const xmlData = csvToXml(results.data);
                     try {
+
                         const response = await axios.post('http://localhost:5002/api/upload-exam-year', xmlData, {
+
                             headers: {
                                 'Content-Type': 'application/xml'
                             }
@@ -52,7 +54,7 @@ const ExamYearUpload = () => {
     };
 
     const handleBackToHome = () => {
-        navigate('/su-dashboard'); // Adjust the route as per your application's home page route
+        navigate('/su-upload-files'); // Adjust the route as per your application's home page route
     };
 
     return (

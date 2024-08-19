@@ -34,9 +34,26 @@ import HolidaysUpload from './components/superuser/HolidaysUpload';
 import HolidayList from './components/superuser/HolidayList';
 import ScheduleWithHolidays from './components/user/ScheduleWithHolidays';
 import ScheduleViewerAsUser from './components/user/ScheduleViewerAsUser';
-
-
-
+import UploadTeacherImage from './components/teacher/UPloadTeacherImage';
+import TeacherList from './components/teacher/TeacherList';
+import TeacherDashboard from './components/teacher/TeacherDashboard';
+import StudentDashboard from './components/student/StudentDashboard';
+import StaffDashboard from './components/staff/StaffDashboard';
+import TeacherHomePage from './pages/teacher/TeacherHomePage';
+import TeacherNavbar from './components/teacher/TeacherNavbar';
+import SUNavbar from './components/superuser/SUNavbar';
+import SUHomePage from './pages/superuser/SUHomePage';
+import StudentHomePage from './pages/student/StudentHomePage'
+import StaffHomePage from './pages/staff/StaffHomePage'
+import FileUploadPage from './pages/superuser/FileUploadPage';
+import DepartmentDetails from './components/department/DepartmentDetails';
+import DepartmentDetailsPage from './pages/superuser/DepartmentDetailsPage';
+import TeacherProfilePage from './pages/teacher/TeacherProfilePage';
+import EditRoomPage from './pages/superuser/EditRoomPage';
+import EditStaffProfilePage from './pages/superuser/EditStaffProfilePage';
+import SessionDetailsPage from './pages/superuser/SessionDetailsPage';
+import StudentUpdatePage from './pages/superuser/StudentUpdatePage';
+import ExamYearDetailsPage from './pages/superuser/ExamYearDetailsPage';
 const PrivateRoute = ({ children }) => {
   return getToken() ? children : <Navigate to="/su-login" />;
 };
@@ -58,6 +75,10 @@ function App() {
         <Route path="/su-dashboard" element={<PrivateRoute><SUDashboard /></PrivateRoute>}/>
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
         <Route path="/forgot-password" element={<ForgotPassword />} />
+
+        <Route path="/upload-holidays" element={<HolidaysUpload/>}/>
+        <Route path="/view-holidays" element={<HolidayList/>}/>
+
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/su-forgot-password" element={<SUForgotPassword />} />
         <Route path="/su-reset-password/:token" element={<SUResetPassword />} />
@@ -75,10 +96,30 @@ function App() {
         <Route path="/upload-syllabus-test" element={<SyllabusUploadTest/>}/>
         <Route path="/filter-syllabus" element={<SyllabusFilter/>}/>
         <Route path="/course-data" element={<CourseDataDisplay/>}/>
-        <Route path="/upload-holidays" element={<HolidaysUpload/>}/>
-        <Route path="/view-holidays" element={<HolidayList/>}/>
 
         <Route path="/generate-routine" element={<ScheduleGenerator/>}/>
+
+        <Route path="/upload-teacher-image/:teacher_id" element={<UploadTeacherImage/>}/>
+        <Route path="/teacher-list" element={<TeacherList/>}/>
+        <Route path="/teacher-dashboard" element={<PrivateRoute><TeacherDashboard /></PrivateRoute>}/>
+        <Route path="/student-dashboard" element={<PrivateRoute><StudentDashboard /></PrivateRoute>}/>
+        <Route path="/staff-dashboard" element={<PrivateRoute><StaffDashboard /></PrivateRoute>}/>
+        <Route path="/su-navbar" element={<PrivateRoute><SUNavbar /></PrivateRoute>}/>
+        <Route path="/teacher-navbar" element={<PrivateRoute><TeacherNavbar /></PrivateRoute>}/>
+        <Route path="/teacher-homepage" element={<PrivateRoute><TeacherHomePage /></PrivateRoute>}/>
+        <Route path="/su-homepage" element={<PrivateRoute><SUHomePage /></PrivateRoute>}/>
+        <Route path="/student-homepage" element={<PrivateRoute><StudentHomePage /></PrivateRoute>}/>
+        <Route path="/staff-homepage" element={<PrivateRoute><StaffHomePage /></PrivateRoute>}/>
+        <Route path="/su-upload-files" element={<PrivateRoute><FileUploadPage /></PrivateRoute>}/>
+        <Route path="/department-details/:dept_id" element={<DepartmentDetailsPage />} />
+        <Route path="/teacher-profile/:teacher_id" element={<PrivateRoute><TeacherProfilePage/></PrivateRoute>}/>
+        <Route path="/edit-room/:room_id" element={<PrivateRoute><EditRoomPage/></PrivateRoute>}/>
+        <Route path="/edit-staff-profile/:staff_id" element={<PrivateRoute><EditStaffProfilePage/></PrivateRoute>}/>
+        <Route path="/session-details/:session_id" element={<PrivateRoute><SessionDetailsPage/></PrivateRoute>}/>
+        <Route path="/student-update/:student_id" element={<PrivateRoute><StudentUpdatePage/></PrivateRoute>}/>
+
+        <Route path="/examyear-details/:exam_year_id" element={<PrivateRoute><ExamYearDetailsPage/></PrivateRoute>}/>
+
         <Route path="/view-routine" element={<ScheduleViewer/>}/>
         <Route path="/view-calendar-as-user" element={<ScheduleWithHolidays/>}/>
         <Route path="/view-routine-as-user" element={<ScheduleViewerAsUser/>}/>
